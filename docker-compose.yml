@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+  how-to-make-db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=gt1998
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=HowToMake
+    ports:
+      - '5432:5431'
+  how-to-make:
+    build:  .
+    ports:
+      - '6000:6001'
+    depends_on:
+      - how-to-make-db
